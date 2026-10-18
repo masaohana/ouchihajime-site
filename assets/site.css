@@ -453,3 +453,32 @@ a.card:hover .ph img{transform:scale(1.05)}
 .solo figure{margin:0}
 .solo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
 .solo figcaption{font-size:13px;margin-top:8px}
+
+/* ===== オハナホームのサイト群 共通リンク集（正本：会社をよくしたい。/サイト群リンク集/make_linkhub.py・2026-10-18 v0.2）===== */
+/* オハナホームのサイト群 共通リンク集（.ohl-）。色は各サイトで --ohl-* を上書きできる。白・生成り・黒だけ、写真なし */
+.ohl{--ohl-bg:#fff;--ohl-fg:#111;--ohl-sub:#5c5c5c;--ohl-line:#d7d7d7;--ohl-pad:clamp(20px,5vw,72px);background:var(--ohl-bg);color:var(--ohl-fg);padding:clamp(40px,6vw,72px) var(--ohl-pad);font-family:inherit;line-height:1.5}
+.ohl *{box-sizing:border-box}
+.ohl-in{max-width:1200px;margin:0 auto}
+.ohl-h{margin:0 0 18px;font-size:clamp(19px,2vw,26px);font-weight:900;line-height:1.3;text-wrap:balance}
+.ohl-h small{display:block;font-size:11px;letter-spacing:.22em;font-weight:700;color:var(--ohl-sub);margin-bottom:6px}
+.ohl-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.ohl-card>a,.ohl-card>div{display:flex;flex-direction:column;gap:6px;height:100%;min-height:160px;padding:18px 18px 14px;border:1.5px solid var(--ohl-line);color:inherit;text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.ohl-card>a:hover,.ohl-card>a:focus-visible{background:var(--ohl-fg);color:var(--ohl-bg);border-color:var(--ohl-fg);outline:none}
+.ohl-card>a:hover .ohl-desc,.ohl-card>a:focus-visible .ohl-desc{color:inherit;opacity:.78}
+.ohl-verb{font-size:clamp(18px,1.6vw,22px);font-weight:900;line-height:1.25;text-wrap:balance}
+.ohl-name{font-size:13px;font-weight:700;letter-spacing:.04em}
+.ohl-desc{font-size:12.5px;line-height:1.75;color:var(--ohl-sub);flex:1}
+.ohl-arrow{align-self:flex-end;font-size:18px;font-weight:900;line-height:1}
+.ohl-here{align-self:flex-end;font-size:11px;font-weight:900;letter-spacing:.12em;padding:4px 9px;background:var(--ohl-fg);color:var(--ohl-bg)}
+.ohl-card.is-here>div{border-color:var(--ohl-fg)}
+.ohl-ph{display:block;aspect-ratio:16/10;overflow:hidden;margin:-18px -18px 10px;background:#eee}
+.ohl-ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.ohl-card>a:hover .ohl-ph img,.ohl-card>a:focus-visible .ohl-ph img{transform:scale(1.05)}
+.ohl-card.is-here .ohl-ph img{filter:grayscale(.35)}
+@media(prefers-reduced-motion:reduce){.ohl-ph img{transition:none}.ohl-card>a:hover .ohl-ph img{transform:none}}
+@media(max-width:1000px){.ohl-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.ohl-list{grid-template-columns:repeat(2,minmax(0,1fr))}.ohl-card:last-child{grid-column:1/-1}}
+@media(max-width:560px){.ohl-list{grid-template-columns:1fr}.ohl-card>a,.ohl-card>div{min-height:0;display:grid;grid-template-columns:104px minmax(0,1fr) auto;grid-template-rows:auto auto 1fr;gap:2px 12px;padding:0 14px 0 0}.ohl-ph{grid-row:1/4;grid-column:1;margin:0;width:104px;height:100%;min-height:112px;aspect-ratio:auto}.ohl-verb{grid-column:2;grid-row:1;margin-top:12px;font-size:17px}.ohl-name{grid-column:2;grid-row:2}.ohl-desc{grid-column:2/4;grid-row:3;margin-bottom:12px}.ohl-arrow,.ohl-here{grid-column:3;grid-row:1;margin-top:14px;align-self:start}.ohl-card>a:not(:has(.ohl-ph)),.ohl-card>div:not(:has(.ohl-ph)){grid-template-columns:minmax(0,1fr) auto;padding:12px 14px}.ohl-card>a:not(:has(.ohl-ph)) .ohl-verb,.ohl-card>div:not(:has(.ohl-ph)) .ohl-verb{grid-column:1;margin-top:0}.ohl-card>a:not(:has(.ohl-ph)) .ohl-name,.ohl-card>div:not(:has(.ohl-ph)) .ohl-name{grid-column:1}.ohl-card>a:not(:has(.ohl-ph)) .ohl-desc,.ohl-card>div:not(:has(.ohl-ph)) .ohl-desc{grid-column:1/3;margin-bottom:0}.ohl-card>a:not(:has(.ohl-ph)) .ohl-arrow,.ohl-card>div:not(:has(.ohl-ph)) .ohl-here{grid-column:2;margin-top:0}}
+/* おうちはじめの色に合わせる（文言・順番・リンク先は変えない） */
+.ohl{--ohl-bg:var(--cream);--ohl-fg:var(--bk);--ohl-sub:#5c5c5c;--ohl-line:#d9d2c2;--ohl-pad:var(--pad)}
+.ohl-ph{background:var(--cream-deep)}
