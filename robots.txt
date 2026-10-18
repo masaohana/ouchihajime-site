@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ouchihajime.jp/sitemap.xml
