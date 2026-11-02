@@ -14,6 +14,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="/assets/site.css?v=169a10f0">
+<!-- tracking:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG66CF73LS"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-PG66CF73LS');
+document.addEventListener('click',function(e){
+  var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a)return;
+  var h=a.getAttribute('href')||'', n='';
+  if(h.indexOf('tel:')===0)n='tel_click'; else if(h.indexOf('line.me')!==-1||h.indexOf('lin.ee')!==-1)n='line_click';
+  if(!n)return;
+  gtag('event',n,{link_url:h,cta_class:(a.className||'').toString().slice(0,60),page_path:location.pathname,transport_type:'beacon'});
+},true);
+</script>
+<!-- tracking:end -->
 
 </head>
 <body class="">
