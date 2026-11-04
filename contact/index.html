@@ -13,7 +13,7 @@
 <link rel="icon" href="/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=53dbfe39">
+<link rel="stylesheet" href="/assets/site.css?v=28ef0515">
 <!-- tracking:start -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG66CF73LS"></script>
 <script>
@@ -46,11 +46,67 @@ document.addEventListener('click',function(e){
   <div class="ctc rv">
     <a href="tel:0120087255" data-ev="click_tel" data-where="contact"><b>電話で聞く</b><p class="big">0120-087-255</p><p>9:00〜17:00・日祝休み</p></a>
     <a href="https://lin.ee/wfuJh2m" target="_blank" rel="noopener" data-ev="click_line" data-where="contact"><b>LINEで相談</b><img src="/img/line_qr.png" alt="LINE QRコード"><p>友だち追加して、気になる家のURLか、事例の番号（W02など）を送ってください</p></a>
-    <a href="#form" data-ev="generate_lead" data-where="contact"><b>フォームで送る</b><p>内見の希望・新着の知らせ・探している家の相談</p><span class="btn fill">フォームを開く</span></a>
+    <a href="#form" data-ev="click_form" data-where="contact"><b>フォームで送る</b><p>内見の希望・新着の知らせ・探している家の相談</p><span class="btn fill">入力画面へ</span></a>
   </div>
-  <div class="formwrap" id="form"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdagB0MAwfdwB2BGQ-TdyFf7W32BLCp9WYjCjrbrQ3w0LwjgA/viewform?usp=pp_url&amp;entry.1508941475=%E5%AE%B6%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%EF%BC%88%E8%B3%BC%E5%85%A5%E3%83%BB%E3%83%AA%E3%83%8E%E3%83%99%E3%82%BB%E3%83%83%E3%83%88%EF%BC%89&amp;embedded=true" title="相談フォーム" loading="lazy">読み込んでいます…</iframe><p class="note">フォームが表示されないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSdagB0MAwfdwB2BGQ-TdyFf7W32BLCp9WYjCjrbrQ3w0LwjgA/viewform?usp=pp_url&amp;entry.1508941475=%E5%AE%B6%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%EF%BC%88%E8%B3%BC%E5%85%A5%E3%83%BB%E3%83%AA%E3%83%8E%E3%83%99%E3%82%BB%E3%83%83%E3%83%88%EF%BC%89" target="_blank" rel="noopener" data-ev="generate_lead" data-where="contact_newtab">別の画面で開く</a>。</p></div>
+  <div class="formwrap" id="form">
+    <p class="h3">フォームで送る</p>
+    <form class="cform" id="cform" novalidate>
+      <div class="cf-row"><label for="cf-name">お名前<em>必須</em></label><input id="cf-name" name="name" autocomplete="name" required></div>
+      <div class="cf-row"><label for="cf-mail">メールアドレス<em>必須</em></label><input id="cf-mail" name="mail" type="email" inputmode="email" autocomplete="email" required></div>
+      <div class="cf-row"><label for="cf-tel">電話番号<i>任意</i></label><input id="cf-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel"></div>
+      <fieldset class="cf-row"><legend>ご相談の種類</legend><div class="cf-radios"><label class="cf-radio"><input type="radio" name="kind" value="家を買いたい（購入・リノベセット）" checked><span>家を買いたい（購入・リノベセット）</span></label><label class="cf-radio"><input type="radio" name="kind" value="空き家のこと"><span>空き家のこと</span></label><label class="cf-radio"><input type="radio" name="kind" value="その他"><span>その他</span></label></div></fieldset>
+      <div class="cf-row"><label for="cf-url1">気になる家のURL<i>任意</i></label><div class="cf-urls" id="cf-urls"><div class="cf-url"><input id="cf-url1" name="url" type="url" inputmode="url" placeholder="SUUMO・アットホームなどのページのURL"><button type="button" class="cf-add" id="cf-add" aria-label="URLの欄を足す">＋</button></div></div><p class="cf-hint">気になる家が何件かあるときは「＋」で欄を足せます。</p></div>
+      <div class="cf-row"><label for="cf-msg">ご相談内容<i>任意</i></label><textarea id="cf-msg" name="msg" rows="6" placeholder="内見の希望日、探しているエリア・予算など"></textarea></div>
+      <div class="cf-hp" aria-hidden="true"><label>この欄は空けておいてください<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <p class="cf-pp">送っていただいた内容の扱いは、<a href="https://we.ohanahome.jp/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>のとおりです。</p>
+      <p class="cf-err" id="cf-err" role="alert" hidden></p>
+      <button class="btn fill lg" type="submit" id="cf-send">この内容で送る</button>
+    </form>
+    <div class="cf-done" id="cf-done" hidden tabindex="-1"><p class="h3">受け付けました</p><p>担当から、メールかお電話でご連絡します。お急ぎのときは、0120-087-255（9:00〜17:00・日祝休み）へお電話ください。</p></div>
+    <noscript><p class="note">送信には JavaScript を使います。うまく送れないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSdagB0MAwfdwB2BGQ-TdyFf7W32BLCp9WYjCjrbrQ3w0LwjgA/viewform?usp=pp_url&amp;entry.1508941475=%E5%AE%B6%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%EF%BC%88%E8%B3%BC%E5%85%A5%E3%83%BB%E3%83%AA%E3%83%8E%E3%83%99%E3%82%BB%E3%83%83%E3%83%88%EF%BC%89" target="_blank" rel="noopener">こちらのフォーム</a>からお送りください。</p></noscript>
+  </div>
+<script>
+(function(){
+  var f=document.getElementById('cform'); if(!f) return;
+  var POST="https://docs.google.com/forms/d/e/1FAIpQLSdagB0MAwfdwB2BGQ-TdyFf7W32BLCp9WYjCjrbrQ3w0LwjgA/formResponse", ENT={"name": "entry.962870540", "mail": "entry.1318355957", "kind": "entry.1508941475", "msg": "entry.140108967"};
+  var q=location.search, c=q.match(/[?&]case=(W\d{2,3})(?:&|$)/), h=q.match(/[?&]id=([A-Za-z0-9_-]{1,20})(?:&|$)/);
+  var ref=c?('見た事例：'+c[1]):(h?('見た家：'+h[1]):'');
+  if(c) f.msg.value='事例「'+c[1]+'」を見て、相談したいです。';
+  var err=document.getElementById('cf-err'), btn=document.getElementById('cf-send');
+  function bad(m,el){err.textContent=m;err.hidden=false;if(el)el.focus();}
+  var box=document.getElementById('cf-urls'), add=document.getElementById('cf-add'), n=1;
+  add.addEventListener('click',function(){
+    if(box.children.length>=20) return;
+    n++; var row=document.createElement('div'); row.className='cf-url';
+    var inp=document.createElement('input'); inp.name='url'; inp.type='url'; inp.inputMode='url'; inp.id='cf-url'+n; inp.placeholder='もう1件のURL'; inp.setAttribute('aria-label','気になる家のURL（'+(box.children.length+1)+'件目）');
+    var del=document.createElement('button'); del.type='button'; del.className='cf-del'; del.textContent='×'; del.setAttribute('aria-label','この欄を消す');
+    del.addEventListener('click',function(){row.remove(); add.focus();});
+    row.appendChild(inp); row.appendChild(del); box.appendChild(row); inp.focus();
+  });
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    var name=f.elements.name.value.trim(), mail=f.elements.mail.value.trim(), tel=f.elements.tel.value.trim(), msg=f.elements.msg.value.trim();
+    var urls=[].slice.call(box.querySelectorAll('input')).map(function(i){return i.value.trim();}).filter(Boolean);
+    var url=urls.length>1?('気になる家（'+urls.length+'件）：\n'+urls.join('\n')):(urls.length?('気になる家：'+urls[0]):'');
+    var kind=(f.querySelector('input[name=kind]:checked')||{}).value||'';
+    if(!name) return bad('お名前を入れてください。',f.elements.name);
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) return bad('メールアドレスを確かめてください。',f.elements.mail);
+    var done=function(){f.hidden=true;var d=document.getElementById('cf-done');d.hidden=false;d.focus();
+      try{if(window.gtag)gtag('event','generate_lead',{where:'contact_form',kind:kind});}catch(x){}};
+    if(f.elements.website.value) return done();
+    var body=[msg, tel?('電話番号：'+tel):'', url, ref, '（おうちはじめ のお問い合わせから）'].filter(Boolean).join('\n');
+    var p=new URLSearchParams(); p.append(ENT.name,name); p.append(ENT.mail,mail); if(kind)p.append(ENT.kind,kind); p.append(ENT.msg,body);
+    btn.disabled=true; btn.textContent='送っています…';
+    fetch(POST,{method:'POST',mode:'no-cors',body:p}).then(done).catch(function(){
+      btn.disabled=false; btn.textContent='この内容で送る';
+      bad('送れませんでした。通信を確かめて、もう一度お試しください。お急ぎのときはお電話かLINEでどうぞ。');
+    });
+  });
+})();
+</script>
+
   <div class="box rv" id="news" style="margin-top:36px"><p class="h3">新着を知らせてほしい方へ</p><p style="font-size:14px">フォームかLINEで、「新着希望」と書いて、希望のエリア・間取り・予算・買い方（ポータルで見つけた家をオハナホームの仲介で／オハナホームのリノベセット／直した家／おさえた価格の家／まだ決めていない）を教えてください。合う家が出たときに、お知らせします。</p></div>
-  <p class="note" style="margin-top:18px">会社共通の相談フォームです。「家を買いたい（購入・リノベセット）」を選んだ状態で開きます。</p>
+  <p class="note" style="margin-top:18px"></p>
 </div></section>
 <section class="ohl" aria-label="オハナホームのサイト">
   <div class="ohl-in">
@@ -77,6 +133,6 @@ document.addEventListener('click',function(e){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-<script src="/assets/site.js?v=53dbfe39"></script>
+<script src="/assets/site.js?v=28ef0515"></script>
 </body>
 </html>
