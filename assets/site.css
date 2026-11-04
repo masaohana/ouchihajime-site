@@ -482,3 +482,22 @@ a.card:hover .ph img{transform:scale(1.05)}
 /* おうちはじめの色に合わせる（文言・順番・リンク先は変えない） */
 .ohl{--ohl-bg:var(--cream);--ohl-fg:var(--bk);--ohl-sub:#5c5c5c;--ohl-line:#d9d2c2;--ohl-pad:var(--pad)}
 .ohl-ph{background:var(--cream-deep)}
+
+/* ---------- 2026-11-04 本人の指摘で直したところ ---------- */
+/* お問い合わせ：見出しを中央に、カードの中身を上下の真ん中に、フォームを埋め込む */
+.ctr .sh{flex-direction:column;align-items:center;text-align:center;gap:6px}
+.ctr .sh .lab{justify-content:center}
+.ctc a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.ctc a .btn{margin-top:12px}
+.formwrap{margin-top:clamp(28px,4vw,48px);background:var(--wh);border-radius:var(--r);padding:clamp(8px,1.5vw,16px);box-shadow:0 1px 0 var(--line);text-align:center}
+.formwrap iframe{display:block;width:100%;max-width:720px;height:1320px;margin:0 auto;border:0}
+@media(max-width:640px){.formwrap iframe{height:1560px}}
+.formwrap .note{margin:10px 0 4px}
+/* サイト一覧（共通リンク集）：このサイトでは写真を外し、サイト名を1番上に大きく */
+.ohl-name{order:-1;font-size:clamp(18px,1.6vw,23px);font-weight:900;letter-spacing:0;line-height:1.25;text-wrap:balance;word-break:keep-all;overflow-wrap:anywhere}
+.ohl-verb{font-size:14px;font-weight:700}
+@media(max-width:560px){
+  .ohl-card>a:not(:has(.ohl-ph)) .ohl-name,.ohl-card>div:not(:has(.ohl-ph)) .ohl-name{grid-row:1}
+  .ohl-card>a:not(:has(.ohl-ph)) .ohl-verb,.ohl-card>div:not(:has(.ohl-ph)) .ohl-verb{grid-row:2;font-size:14px}
+  .ohl-card>a:not(:has(.ohl-ph)) .ohl-desc,.ohl-card>div:not(:has(.ohl-ph)) .ohl-desc{grid-row:3}
+}
