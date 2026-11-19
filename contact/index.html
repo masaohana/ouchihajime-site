@@ -63,12 +63,12 @@ document.addEventListener('click',function(e){
       <button class="btn fill lg" type="submit" id="cf-send">この内容で送る</button>
     </form>
     <div class="cf-done" id="cf-done" hidden tabindex="-1"><p class="h3">受け付けました</p><p>担当から、メールかお電話でご連絡します。お急ぎのときは、0120-087-255（9:00〜17:00・日祝休み）へお電話ください。</p></div>
-    <noscript><p class="note">送信には JavaScript を使います。うまく送れないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSdagB0MAwfdwB2BGQ-TdyFf7W32BLCp9WYjCjrbrQ3w0LwjgA/viewform?usp=pp_url&amp;entry.1508941475=%E5%AE%B6%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%EF%BC%88%E8%B3%BC%E5%85%A5%E3%83%BB%E3%83%AA%E3%83%8E%E3%83%99%E3%82%BB%E3%83%83%E3%83%88%EF%BC%89" target="_blank" rel="noopener">こちらのフォーム</a>からお送りください。</p></noscript>
+    <noscript><p class="note">送信には JavaScript を使います。うまく送れないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSdTMuckYdT_S783TSJiz5jZ-KqScJHBYgUBqQwtaZKYpy52jA/viewform?usp=pp_url&amp;entry.1508941475=%E5%AE%B6%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%EF%BC%88%E8%B3%BC%E5%85%A5%E3%83%BB%E3%83%AA%E3%83%8E%E3%83%99%E3%82%BB%E3%83%83%E3%83%88%EF%BC%89" target="_blank" rel="noopener">こちらのフォーム</a>からお送りください。</p></noscript>
   </div>
 <script>
 (function(){
   var f=document.getElementById('cform'); if(!f) return;
-  var POST="https://docs.google.com/forms/d/e/1FAIpQLSdagB0MAwfdwB2BGQ-TdyFf7W32BLCp9WYjCjrbrQ3w0LwjgA/formResponse", ENT={"name": "entry.962870540", "mail": "entry.1318355957", "kind": "entry.1508941475", "msg": "entry.140108967"};
+  var POST="https://docs.google.com/forms/d/e/1FAIpQLSdTMuckYdT_S783TSJiz5jZ-KqScJHBYgUBqQwtaZKYpy52jA/formResponse", ENT={"name": "entry.962870540", "mail": "entry.1318355957", "kind": "entry.1508941475", "msg": "entry.140108967"};
   var q=location.search, c=q.match(/[?&]case=(W\d{2,3})(?:&|$)/), h=q.match(/[?&]id=([A-Za-z0-9_-]{1,20})(?:&|$)/);
   var ref=c?('見た事例：'+c[1]):(h?('見た家：'+h[1]):'');
   if(c) f.msg.value='事例「'+c[1]+'」を見て、相談したいです。';
@@ -94,7 +94,7 @@ document.addEventListener('click',function(e){
     var done=function(){f.hidden=true;var d=document.getElementById('cf-done');d.hidden=false;d.focus();
       try{if(window.gtag)gtag('event','generate_lead',{where:'contact_form',kind:kind});}catch(x){}};
     if(f.elements.website.value) return done();
-    var body=[msg, tel?('電話番号：'+tel):'', url, ref, '（おうちはじめ のお問い合わせから）'].filter(Boolean).join('\n');
+    var body=['【おうちはじめ】', msg, tel?('電話番号：'+tel):'', url, ref, '（おうちはじめ のお問い合わせから）'].filter(Boolean).join('\n');
     var p=new URLSearchParams(); p.append(ENT.name,name); p.append(ENT.mail,mail); if(kind)p.append(ENT.kind,kind); p.append(ENT.msg,body);
     btn.disabled=true; btn.textContent='送っています…';
     fetch(POST,{method:'POST',mode:'no-cors',body:p}).then(done).catch(function(){
